@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 300px;
+}
+
+#movieList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.movieCard {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.movieTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.movieGenre {
+  color: #666;
+}
