@@ -1,0 +1,51 @@
+// Sample movie data
+const movies = [
+  { title: 'Movie 1', genre: 'Action' },
+  { title: 'Movie 2', genre: 'Drama' },
+  { title: 'Movie 3', genre: 'Comedy' },
+  { title: 'Movie 4', genre: 'Action' },
+  { title: 'Movie 5', genre: 'Horror' },
+  // Add more movies here...
+];
+
+// Function to display movies
+function displayMovies() {
+  const movieList = document.getElementById('movieList');
+  movieList.innerHTML = '';
+
+  for (let movie of movies) {
+    const movieCard = document.createElement('div');
+    movieCard.classList.add('movieCard');
+
+    const movieTitle = document.createElement('h2');
+    movieTitle.classList.add('movieTitle');
+    movieTitle.textContent = movie.title;
+
+    const movieGenre = document.createElement('p');
+    movieGenre.classList.add('movieGenre');
+    movieGenre.textContent = movie.genre;
+
+    movieCard.appendChild(movieTitle);
+    movieCard.appendChild(movieGenre);
+    movieList.appendChild(movieCard);
+  }
+}
+
+// Function to filter movies based on search input
+function filterMovies() {
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const filteredMovies = movies.filter(movie => {
+    return movie.title.toLowerCase().includes(searchTerm) || movie.genre.toLowerCase().includes(searchTerm);
+  });
+
+  movies.length > 0 ? displayMovies(filteredMovies) : displayMovies();
+}
+
+// Event listener for search input
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', filterMovies);
+
+// Initial display of movies
+displayMovies();
